@@ -17,8 +17,8 @@ import random
 #     torch.backends.cudnn.deterministic = True
 #     torch.backends.cudnn.benchmark = False
 #     torch.backends.cudnn.enabled = False
-
 # seed(444)
+
 parser = argparse.ArgumentParser()
 
 '''
@@ -28,14 +28,14 @@ parser.add_argument('--n_epochs', type=int, default=20, help='the number of epoc
 parser.add_argument('--neighbor_sample_size', type=int, default=4, help='the number of neighbors to be sampled')
 parser.add_argument('--dim', type=int, default=128, help='dimension of user and entity embeddings') #*32
 parser.add_argument('--n_iter', type=int, default=2, help='number of iterations when computing entity representation')
-parser.add_argument('--batch_size', type=int, default=8192, help='batch size') #动态采样65536的批大小爆显存   初始化嵌入拼接可学习嵌入用8192   异质聚合暂时用2048
+parser.add_argument('--batch_size', type=int, default=8192, help='batch size') 
 parser.add_argument('--l2_weight', type=float, default=1e-7, help='weight of l2 regularization')
 parser.add_argument('--ls_weight', type=float, default=0.1, help='weight of LS regularization')
 parser.add_argument('--lr', type=float, default=3e-3, help='learning rate')
 parser.add_argument('--ratio', type=float, default=1, help='size of training dataset')
-parser.add_argument('--neighbor_percentile', type=float, default=80, help='coarse sample of entity neighbors')
+parser.add_argument('--neighbor_percentile', type=float, default=90, help='coarse sample of entity neighbors')
 parser.add_argument('--user_click_percentile', type=float, default=99, help='size of training dataset')
-parser.add_argument('--device', type=str, default='1', help='which dataset to use')
+parser.add_argument('--device', type=str, default='1', help='GPU index')
 '''
 
 
@@ -50,9 +50,9 @@ parser.add_argument('--l2_weight', type=float, default=1.5e-4, help='weight of l
 parser.add_argument('--ls_weight', type=float, default=0.1, help='weight of LS regularization')
 parser.add_argument('--lr', type=float, default=2e-3, help='learning rate')
 parser.add_argument('--ratio', type=float, default=1, help='size of training dataset')
-parser.add_argument('--neighbor_percentile', type=float, default=99, help='coarse sample of entity neighbors')
-parser.add_argument('--user_click_percentile', type=float, default=99, help='size of training dataset')
-parser.add_argument('--device', type=str, default='1', help='which dataset to use')
+parser.add_argument('--neighbor_percentile', type=float, default=99, help='coarse sampling of entity neighbors')
+parser.add_argument('--user_click_percentile', type=float, default=95, help='coarse sampling of interaction sets')
+parser.add_argument('--device', type=str, default='1', help='GPU index')
 
 
 show_loss = False
