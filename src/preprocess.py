@@ -201,6 +201,6 @@ if __name__ == '__main__':
     convert_rating()
     entity_cnt = convert_kg()
 
-    get_init_item_embeddings(statistics['entity_num'], word2vecsize[DATASET], bwindow=30, iter=10)
+    get_init_item_embeddings(statistics['entity_num'], word2vecsize[DATASET], window=30, iter=10)
     np.save('../data/' + DATASET + '/statistics.npy',statistics)
     print('done')

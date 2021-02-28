@@ -30,7 +30,7 @@ The code has been tested running under Python 3.6.12, with the following package
   $ unzip ml-20m.zip
   $ mv ml-20m/ratings.csv data/movie/
   $ cd src
-  $ python preprocess.py -d movie
+  $ python preprocess.py -d movie-20M
   ```
 
 - Music
